@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Descriptive Speaking Practice</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="descriptive-speaking.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">People / Places / Objects / Events</p>
+        <h1>Descriptive Speaking Practice</h1>
+      </div>
+      <div class="top-actions">
+        <a class="ghost-link" href="index.html">Theme Practice</a>
+        <label class="search">
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="teacher, trip, device...">
+        </label>
+      </div>
+    </header>
+
+    <main class="app-shell">
+      <aside class="topic-panel" aria-label="Prompt board">
+        <div class="panel-heading">
+          <h2>Prompts</h2>
+          <span id="topicCount"></span>
+        </div>
+        <div class="category-tabs" id="categoryTabs"></div>
+        <div id="topicList" class="topic-list"></div>
+      </aside>
+
+      <section class="learning-panel" aria-label="Speaking content">
+        <div class="prompt-band">
+          <div>
+            <p class="eyebrow" id="categoryLabel"></p>
+            <h2 id="promptText"></h2>
+          </div>
+          <button id="readPromptBtn" class="primary-button" type="button">Read Model</button>
+        </div>
+
+        <section class="model-card">
+          <div class="section-title">
+            <h2>Model Speaking Answer</h2>
+            <span>45 seconds / B1 target</span>
+          </div>
+          <p id="modelAnswer"></p>
+        </section>
+
+        <section class="keyword-card">
+          <div class="section-title">
+            <h2>Key Words and Phrases</h2>
+            <button id="readKeywordsBtn" class="ghost-button" type="button">Read Words</button>
+          </div>
+          <div id="keywordGrid" class="keywords"></div>
+        </section>
+
+        <div class="practice-area">
+          <section class="practice-box">
+            <div class="section-title">
+              <h2>Speaking Practice</h2>
+              <label>
+                Response time
+                <select id="timeSelect">
+                  <option value="30">30 sec</option>
+                  <option value="45" selected>45 sec</option>
+                  <option value="60">1 min</option>
+                  <option value="90">1 min 30 sec</option>
+                </select>
+              </label>
+            </div>
+            <div class="timer-row">
+              <div id="timerDisplay" class="timer">00:45</div>
+              <div class="record-actions">
+                <button id="recordBtn" class="danger-button" type="button">Start Recording</button>
+                <button id="stopBtn" class="ghost-button" type="button" disabled>Stop</button>
+                <button id="clearBtn" class="ghost-button" type="button">Clear</button>
+              </div>
+            </div>
+            <p id="speechStatus" class="status-text">Ready. Chrome or Edge works best for live speech typing.</p>
+            <audio id="audioPlayback" class="audio-playback" controls hidden></audio>
+          </section>
+
+          <section class="transcript-box">
+            <div class="section-title">
+              <h2>Live Transcript</h2>
+              <div class="inline-actions">
+                <button id="gptBotBtn" class="ghost-button" type="button">Copy + Open IELTS Bot</button>
+                <button id="sendBtn" class="primary-button" type="button">Local Feedback</button>
+              </div>
+            </div>
+            <textarea id="transcript" placeholder="Your spoken response will appear here. You can also type or edit before sending."></textarea>
+            <p id="botStatus" class="status-text compact">Copy the transcript and prompt into your ChatGPT IELTS grading bot.</p>
+          </section>
+        </div>
+
+        <section class="results-panel" id="resultsPanel" hidden>
+          <div class="section-title">
+            <h2>Practice Feedback</h2>
+            <span id="gradeBadge" class="grade-badge"></span>
+          </div>
+          <div class="result-grid">
+            <div>
+              <h3>Organization Check</h3>
+              <ul id="feedbackList"></ul>
+            </div>
+            <div>
+              <h3>Suggested Revision Frame</h3>
+              <p id="correctedText"></p>
+            </div>
+          </div>
+          <div>
+            <h3>Reference Model</h3>
+            <p id="upgradedSample"></p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="descriptive-data.js"></script>
+    <script src="descriptive-speaking.js"></script>
+  </body>
+</html>
