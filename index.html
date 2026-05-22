@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iTEP Speaking Practice</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Public Topic Board</p>
+        <h1>iTEP Speaking Practice</h1>
+      </div>
+      <div class="top-actions">
+        <label class="search">
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="AI, uniforms, travel...">
+        </label>
+        <button id="exportBtn" class="ghost-button" type="button">Export Result</button>
+      </div>
+    </header>
+
+    <main class="app-shell">
+      <aside class="topic-panel" aria-label="Topic board">
+        <div class="panel-heading">
+          <h2>Topics</h2>
+          <span id="topicCount"></span>
+        </div>
+        <div id="topicList" class="topic-list"></div>
+      </aside>
+
+      <section class="learning-panel" aria-label="Learning content">
+        <div class="prompt-band">
+          <div>
+            <p class="eyebrow">Prompt</p>
+            <h2 id="promptText"></h2>
+          </div>
+          <button id="readPromptBtn" class="primary-button" type="button">Read Aloud</button>
+        </div>
+
+        <div class="viewpoint-grid" id="viewpointGrid"></div>
+
+        <div class="practice-area">
+          <section class="practice-box">
+            <div class="section-title">
+              <h2>Speaking Practice</h2>
+              <label>
+                Response time
+                <select id="timeSelect">
+                  <option value="30">30 sec</option>
+                  <option value="45">45 sec</option>
+                  <option value="60" selected>1 min</option>
+                  <option value="90">1 min 30 sec</option>
+                  <option value="120">2 min</option>
+                  <option value="180">3 min</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="timer-row">
+              <div id="timerDisplay" class="timer">01:00</div>
+              <div class="record-actions">
+                <button id="recordBtn" class="danger-button" type="button">Start Recording</button>
+                <button id="stopBtn" class="ghost-button" type="button" disabled>Stop</button>
+                <button id="clearBtn" class="ghost-button" type="button">Clear</button>
+              </div>
+            </div>
+
+            <p id="speechStatus" class="status-text">Ready. Chrome or Edge works best for live speech typing.</p>
+            <audio id="audioPlayback" class="audio-playback" controls hidden></audio>
+          </section>
+
+          <section class="transcript-box">
+            <div class="section-title">
+              <h2>Live Transcript</h2>
+              <button id="sendBtn" class="primary-button" type="button">Send for Grading</button>
+            </div>
+            <textarea id="transcript" placeholder="Your spoken response will appear here. You can also type or edit before sending."></textarea>
+          </section>
+        </div>
+
+        <section class="results-panel" id="resultsPanel" hidden>
+          <div class="section-title">
+            <h2>Correction and Grade</h2>
+            <span id="gradeBadge" class="grade-badge"></span>
+          </div>
+          <div class="result-grid">
+            <div>
+              <h3>Polished Revision</h3>
+              <p id="correctedText"></p>
+            </div>
+            <div>
+              <h3>Organized Feedback</h3>
+              <ul id="feedbackList"></ul>
+            </div>
+          </div>
+          <div>
+            <h3>Original Google Doc Reference</h3>
+            <p id="upgradedSample"></p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js?v=8"></script>
+  </body>
+</html>
